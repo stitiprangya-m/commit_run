@@ -8,7 +8,6 @@ const {
 } = require("../validators/authValidator");
 
 const validateRequest = require("../middlewares/validateRequest");
-const { protect } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
@@ -18,18 +17,11 @@ router.post(
     validateRequest,
     authController.activateAccount
 );
-
 router.post(
     "/login",
     loginValidator,
     validateRequest,
     authController.login
-);
-
-router.get(
-    "/me",
-    protect,
-    authController.getMe
 );
 
 module.exports = router;

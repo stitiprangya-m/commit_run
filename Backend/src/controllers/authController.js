@@ -56,24 +56,7 @@ const login = async (req, res, next) => {
     }
 };
 
-const getMe = async (req, res) => {
-    return res.status(200).json({
-        success: true,
-        data: {
-            user: {
-                id: req.user._id,
-                name: req.user.name,
-                email: req.user.email,
-                role: req.user.role,
-                organizationId: req.user.organizationId,
-                permissions: req.user.permissions || [],
-            },
-        },
-    });
-};
-
 module.exports = {
-    getMe,
     activateAccount,
     login,
 };
