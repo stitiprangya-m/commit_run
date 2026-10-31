@@ -17,7 +17,6 @@ router.post(
     validateRequest,
     authController.activateAccount
 );
-
 router.post(
     "/login",
     loginValidator,
